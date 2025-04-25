@@ -174,6 +174,22 @@ This project uses **three** separate Prisma Clients:
 
 ---
 
+## 🔌 Infrastructure-Ready Components
+
+This project includes placeholder implementations to support key infrastructure features expected in the final Identity Service:
+
+- **Redis Cache (`src/lib/infra/redis.ts`)**  
+  Prepared to store session or permission data. Replace with `ioredis` for production.
+
+- **Kafka Publisher (`src/lib/infra/kafka.ts`)**  
+  Stubbed class to simulate event publishing. Integrate with `kafkajs` or similar client.
+
+- **Shiro-like Permissions (`src/lib/infra/permissions.ts`)**  
+  Basic middleware structure for M2M and admin role checks. Ready to extend with fine-grained RBAC logic.
+
+> These modules are not required by the challenge but were scaffolded for architecture completeness.
+
+
 ## 📝 Notes
 
 - This challenge **only** requires RoleResource logic.
