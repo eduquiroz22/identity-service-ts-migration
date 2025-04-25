@@ -60,7 +60,7 @@ docker-compose up -d
 ```bash
 # Load MySQL dump
 docker cp data/Authorization identity-mysql:/tmp/
-docker exec -i identity-mysql mysql -u root -proot Authorization < /tmp/Authorization
+docker exec -it identity-mysql bash -c "mysql -u root -proot Authorization < /tmp/Authorization"
 
 # Load PostgreSQL dump
 docker cp data/common_oltp identity-postgres:/tmp/
@@ -85,6 +85,13 @@ npx prisma db push --schema=prisma/schema.identity.prisma
 npx ts-node src/migration/migrateRole.ts
 npx ts-node src/migration/migrateRoleAssignment.ts
 ```
+
+#### ⚙️ Parallel Migration
+Migration scripts use parallel processing for RoleAssigment. You can control the level via:
+```env
+MIGRATION_PARALLELISM=6
+```
+Defaults to 6 if not set.
 
 ---
 
