@@ -93,6 +93,12 @@ MIGRATION_PARALLELISM=6
 ```
 Defaults to 6 if not set.
 
+#### 🔍 DataMigrated vs. DataMySQL
+Snapshot showing a side-by-side verification of a few sample records from both Role and RoleAssignment tables, confirming that the data was correctly migrated from MySQL to PostgreSQL.
+
+![Screenshot from 2025-04-25 04-54-44](https://github.com/user-attachments/assets/df1b17b2-d5d6-4bee-9374-e07ddb96b5d8)
+
+
 ---
 
 ### 7. Run the API Server
@@ -124,6 +130,9 @@ npx jest
 
 ## 🔎 Postman Collection
 Import the provided `postman/role-resource.postman_collection.json` and run tests via the UI or CLI.
+
+![Screenshot from 2025-04-25 05-33-20](https://github.com/user-attachments/assets/a7de788b-4837-48d6-969f-f84a27c2ccf2)
+
 
 ---
 
@@ -160,6 +169,8 @@ This project uses **three** separate Prisma Clients:
 - **Parallel migration** of `RoleAssignment` records using batch + Promise.all for speedup
 - **Custom ID handling** for migrated roles to maintain legacy compatibility
 - **CLI progress logs** for tracking large migrations
+
+![Screenshot from 2025-04-25 05-38-01](https://github.com/user-attachments/assets/8d036271-f5b7-4b16-9d66-d4b929128406)
 
 ---
 
